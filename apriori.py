@@ -11,13 +11,14 @@ class Apriori:
 
         with open(filename) as f:
             for transaction in f:
+#                 pprint(transaction)
                 self.total += 1
                 for i in transaction.strip().split(','):
-                    if i in items:
+                    if i in items and i != '':
                         items[i] += 1.
                     else:
                         items[i] = 1.
-            
+#         pprint(items)    
         self.items = {i:j/self.total for i,j in items.items() if j/self.total > self.support_threshold}
         self.item2id = {j:i for i,j in enumerate(self.items)}
         self.D = np.zeros((self.total, len(items)), dtype=bool)
