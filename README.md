@@ -48,3 +48,34 @@ Rule  5   ('472', '737')  ->  732  confidence: 92 % support: 0.10634
 Rule  6   ('732', '833')  ->  885  confidence: 91 % support: 0.10123
 Rule  7   ('472', '732')  ->  885  confidence: 91 % support: 0.10838
 ```
+
+## Implementation with Kaggle Dataset
+* dataset used: [Association of shopping basket](https://www.kaggle.com/lalalalsa/association-of-shopping-basket/data)
+
+### result of Apriori Algorithm
+support = 0.05(56.95/1139)
+confidence = 0.9
+
+```
+Rule  1   ['laundry detergent', 'juice']  ->  vegetables  confidence: 95 % support: 0.06234
+Rule  2   ['laundry detergent', 'ice cream']  ->  vegetables  confidence: 95 % support: 0.06058
+Rule  3   ['dinner rolls', 'lunch meat']  ->  vegetables  confidence: 95 % support: 0.06058
+Rule  4   ['dinner rolls', 'bagels']  ->  vegetables  confidence: 95 % support: 0.05795
+Rule  5   ['dishwashing liquid/detergent', 'poultry']  ->  vegetables  confidence: 95 % support: 0.0755
+Rule  6   ['soap', 'hand soap']  ->  vegetables  confidence: 95 % support: 0.05443
+Rule  7   ['dinner rolls', 'eggs']  ->  vegetables  confidence: 95 % support: 0.0676
+```
+
+### result of FP-Growth
+support = 300
+confidence = 0.9
+
+```
+Rule  1  ( 'sandwich bags', 'cheeses' ) ->  vegetables  confidence: 92 % support: 0.56102
+Rule  2  ( 'soda', 'paper towels' ) ->  vegetables  confidence: 92 % support: 0.54609
+Rule  3  ( 'soda', 'eggs' ) ->  vegetables  confidence: 92 % support: 0.64969
+Rule  4  ( 'soda', 'shampoo' ) ->  vegetables  confidence: 92 % support: 0.54083
+Rule  5  ( 'poultry', 'eggs' ) ->  vegetables  confidence: 91 % support: 0.55926
+Rule  6  ( 'yogurt', 'cheeses' ) ->  vegetables  confidence: 90 % support: 0.54434
+Rule  7  ( 'soap', 'pasta' ) ->  vegetables  confidence: 90 % support: 0.5259
+```
