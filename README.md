@@ -53,6 +53,9 @@ Rule  7   ('472', '732')  ->  885  confidence: 91 % support: 0.10838
 * dataset used: [Association of shopping basket](https://www.kaggle.com/lalalalsa/association-of-shopping-basket/data)
 
 ### result of Apriori Algorithm
+![](https://i.imgur.com/vRLcY1C.png)
+![](https://i.imgur.com/9g5SyC1.png)
+
 support = 0.05(56.95/1139)
 confidence = 0.9
 
@@ -67,6 +70,10 @@ Rule  7   ['dinner rolls', 'eggs']  ->  vegetables  confidence: 95 % support: 0.
 ```
 
 ### result of FP-Growth
+
+![](https://i.imgur.com/o7vmL4Y.png)
+![](https://i.imgur.com/UwS4yt3.png)
+
 support = 300
 confidence = 0.9
 
