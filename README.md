@@ -1,11 +1,29 @@
 # Data Mining Homework1 - Association Analysis
 ###### tags: `datamining`
 ---
+* [Dataset](#Datasets)
+    * [IBM Quest Synthetic Data Generator](#IBM-Quest-Synthetic-Data-Generator)
+    * [Kaggle dataset: Association of shopping basket](#Kaggle-dataset-Association-of-shopping-basket)
+* [Implemenation](#Implemantation)
+    * [Apriori Algorithm](#Apriori-Algorithm)
+    * [FP-Growth Algorithm](#FP-Growth-Algorithm)
+* [Implementation of IBM Quest Synthetic Data Generator Dataset](#Implementation-of-IBM-Quest-Synthetic-Data-Generator-Dataset)
+    * [result of Apriori algorithm](#result-of-Apriori-algorithm)
+    * [result of Fp-growth](#result-of-Fp-growth)
+* [Implementation with Kaggle Dataset](#Implementation-with-Kaggle-Dataset)
+    * [result of Apriori algorithm](#result-of-Apriori-Algorithm)
+    * [result of FP-growth](#result-of-Fp-growth)
+* [Result Comparison](#Result-Comparison)
+    * [Comparison of Time](#Comparison-of-Time)
+    * [Comparison of Memory Usage](#Comparison-of-Memory-Usage)
+* [Discussion](#Discussion)
+    * [Time](#Time)
+    * [Memory Usage](#Memory-Usage)
+    * [Dataset](#Dataset)
+* [Conclusion and Observation](#Conclusion-and-Observation)
 
 
-[TOC]
-
-## Dataset
+## Datasets
 ### IBM Quest Synthetic Data Generator
 *    parameter:
         *    `ntrans`, number of transaction = 1(*1000)
@@ -21,7 +39,9 @@
 IBM Quest Data Generator.exe" lit -ntrans 1 -tlen 10 -nitems 1 -npats 100 -fname test
 ```
 
-### Kaggle dataset: [Association of shopping basket](https://www.kaggle.com/lalalalsa/association-of-shopping-basket/data)
+### Kaggle dataset Association of shopping basket
+
+[Association of shopping basket](https://www.kaggle.com/lalalalsa/association-of-shopping-basket/data)
 * The data records the time and id of an item to be bought
 * the original data format has 3 columns
     * `date`
@@ -108,9 +128,9 @@ It is also be visualized by part and explained in `fpgrowth.ipynb`
     * the final step of getting the frequent pattern list
 
 ## Implementation of IBM Quest Synthetic Data Generator Dataset
-### result of Apriori Algorithm
+### result of Apriori algorithm
 #### result from WEKA
-![](https://i.imgur.com/6a7jcNn.png =300x)
+![](https://i.imgur.com/6a7jcNn.png)
 
 #### result from implementation
 ```
@@ -125,7 +145,7 @@ Rule  7   ('472', '885')  ->  737  confidence: 91 % support: 0.10532
 
 ### result of Fp-growth
 #### result from WEKA
-![](https://i.imgur.com/RFbK53i.png =300x)
+![](https://i.imgur.com/RFbK53i.png)
 
 #### result from implementation
 ```
@@ -144,7 +164,7 @@ Rule  7   ('472', '732')  ->  885  confidence: 91 % support: 0.10838
 
 |||
 |---|---|
-|![](https://i.imgur.com/vRLcY1C.png =400x)|![](https://i.imgur.com/9g5SyC1.png =400x)|
+|![](https://i.imgur.com/vRLcY1C.png)|![](https://i.imgur.com/9g5SyC1.png)|
 
 
 support = 0.05(56.95/1139)
@@ -165,7 +185,7 @@ Rule  7   ['dinner rolls', 'eggs']  ->  vegetables  confidence: 95 % support: 0.
 #### result from WEKA
 |||
 |---|---|
-|![](https://i.imgur.com/o7vmL4Y.png =400x)|![](https://i.imgur.com/UwS4yt3.png =400x)|
+|![](https://i.imgur.com/o7vmL4Y.png)|![](https://i.imgur.com/UwS4yt3.png)|
 
 support = 300
 confidence = 0.9
@@ -182,17 +202,19 @@ Rule  7  ( 'soap', 'pasta' ) ->  vegetables  confidence: 90 % support: 0.5259
 ```
 
 ## Result Comparison
-### Time 
+### Comparison of Time 
 #### Comparison of difference confidence
 ##### IBM data
 when support = 0.1(98 instances)
+
 |Algorithm|Confidence = 0.09|Confidence = 0.9|
-|---|---|---|---|---|
+|---|---|---|
 |Apriori|0.019737 s|0.011015 s|
 |FP-Growth|0.014185 s|0.014091 s|
 
 ##### Kaggle data
 when support = 0.05(300 instances)
+
 |Algorithm|Confidence = 0.09|Confidence = 0.9|
 |---|---|---|
 |Apriori|216.218820 s|197.384784 s|
@@ -220,6 +242,7 @@ Support = 0.6(300 instances)
 Support = 0.7(350 instances)
 Support = 0.8(450 instances)
 Support = 0.9(500 instances)
+
 |Algorithm|Support = 0.6|Support = 0.7|Support = 0.8|Support = 0.9|
 |---|---|---|---|---|
 |Apriori|201.229253 s|148.022001 s| 162.887056s|180.557306 s|
@@ -227,10 +250,11 @@ Support = 0.9(500 instances)
 
 ---
 
-### Memory Usage
+### Comparison of Memory Usage
 #### Comparison of difference confidence
 ##### IBM data
 when support = 0.1(98 instances)
+
 |Algorithm|Confidence = 0.09|Confidence = 0.9|
 |---|---|---|
 |Apriori|59588608 bytes|59576800 bytes|
@@ -238,6 +262,7 @@ when support = 0.1(98 instances)
 
 ##### Kaggle data
 when support = 0.05(300 instances)
+
 |Algorithm|Confidence = 0.09|Confidence = 0.9|
 |---|---|---|
 |Apriori|74985472 bytes|63873024 bytes|
@@ -252,6 +277,7 @@ Support = 0.1(98 instances)
 Support = 0.05(49 instances)
 Support = 0.01(25 instances)
 Support = 0.005(12 instances)
+
 |Algorithm|Support = 0.1|Support = 0.05|Support = 0.01|Support = 0.005|
 |---|---|---|---|---|
 |Apriori|59588608 bytes|59863040 bytes|62423040 bytes|81350656 bytes|
@@ -263,6 +289,7 @@ Support = 0.6(300 instances)
 Support = 0.7(350 instances)
 Support = 0.8(450 instances)
 Support = 0.9(500 instances)
+
 |Algorithm|Support = 0.9|Support = 0.8|Support = 0.7|Support = 0.6|
 |---|---|---|---|---|
 |Apriori|63504384 bytes|63862984 bytes|64307200 bytes|65635043  bytes|
